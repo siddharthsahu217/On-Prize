@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>On Prize | Food Delivery</title>
+  <link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Sticky Header -->
+<header class="navbar">
+ <div class="logo">
+  <span class="on">On</span>
+  <span class="prize">Prize</span>
+ </div>
+  
+</header>
+
+<!-- hero  -->
+<section class="hero">
+  <div class="hero-overlay">
+    <h2>Delicious food, delivered fast</h2>
+<div class="location-bar">
+  <span class="location-icon">📍</span>
+  <input type="text" id="locationInput" placeholder="Enter your delivery location" readonly>
+  <button id="detectLocationBtn">Detect</button>
+</div>
+
+<p id="locationStatus" class="location-status"></p>
+
+    <div class="hero-search">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search for pizza, burger, snacks..."
+      >
+    </div>
+     <div id="searchMessage" class="search-message"></div>
+
+  </div>
+</section>
+
+<!-- food carousel  -->
+<section class="food-carousel">
+  <div class="carousel-track">
+    <!-- Duplicate images for infinite effect -->
+    <img src="./src/carosel/pexels-abhinavcoca-291528.jpg"/>
+    <img src="./src/carosel/pexels-pixabay-36756.jpg" />
+    <img src="./src/carosel/pexels-bananamade-2762942.jpg" />
+    <img src="./src/carosel/pexels-chiecharon-959922.jpg" />
+    <img src="./src/carosel/pexels-ella-olsson-572949-3026810.jpg" />
+    <img src="./src/carosel/pexels-enginakyurt-2619970.jpg" />
+    <img src="./src/carosel/pexels-jonathanborba-2983101.jpg"/>
+    <img src="./src/carosel/pexels-naurchin-2377173.jpg" />
+    <img src="./src/carosel/pexels-pixabay-33129.jpg" />
+    <img src="./src/carosel/pexels-pixabay-36756.jpg" />
+    <img src="./src/carosel/pexels-pixabay-47062.jpg"/>    
+    <img src="./src/carosel/pexels-raizzavidena-1108775.jpg"/>    
+    <!-- duplicate -->
+    <img src="./src/carosel/pexels-abhinavcoca-291528.jpg"/>
+    <img src="./src/carosel/pexels-pixabay-36756.jpg" />
+    <img src="./src/carosel/pexels-bananamade-2762942.jpg" />
+    <img src="./src/carosel/pexels-chiecharon-959922.jpg" />
+    <img src="./src/carosel/pexels-ella-olsson-572949-3026810.jpg" />
+    <img src="./src/carosel/pexels-enginakyurt-2619970.jpg" />
+    <img src="./src/carosel/pexels-jonathanborba-2983101.jpg"/>
+    <img src="./src/carosel/pexels-naurchin-2377173.jpg" />
+    <img src="./src/carosel/pexels-pixabay-33129.jpg" />
+    <img src="./src/carosel/pexels-pixabay-36756.jpg" />
+    <img src="./src/carosel/pexels-pixabay-47062.jpg"/>    
+    <img src="./src/carosel/pexels-raizzavidena-1108775.jpg"/>    
+    
+  
+  </div>
+</section>
+
+<div class="section-label">
+  <span>Explore Categories</span>
+</div>
+
+<!-- Categories -->
+<section class="categories">
+  <div class="card"><img src="./src/burger.jpg"><p>Burgers</p></div>
+  <div class="card"><img src="./src/pizza.jpg"><p>Pizza</p></div>
+  <div class="card"><img src="./src/Noodels.jpg"><p>Chinese</p></div>
+  <div class="card"><img src="./src/fried chiken.jpg"><p>Fried Chicken</p></div>
+  <div class="card"><img src="./src/fried rice.jpg"><p>Rice</p></div>
+  <div class="card"><img src="./src/snack 2.jpeg"><p>Snacks</p></div>
+
+  <div class="card"><img src="./src/mojito.jpg"><p>Drinks</p></div>
+  <div class="card"><img src="./src/muglai.jpg"><p>Mughlai Biryani</p></div>
+  <div class="card"><img src="./src/cake.jpg"><p>Cake</p></div>
+  <div class="card"><img src="./src/dosa.jpg"><p>South Indian</p></div>
+  <div class="card"><img src="./src/momos.jpg"><p>Momos</p></div>
+  <div class="card"><img src="./src/roll.jpg"><p>Wraps</p></div>
+
+  <div class="card"><img src="./src/sandwich.jpg"><p>Sandwich</p></div>
+  <div class="card"><img src="./src/pasta.jpg"><p>Pasta</p></div>
+  <div class="card"><img src="./src/vegthali.jpg"><p>Veg Thali</p></div>
+  <div class="card"><img src="./src/pavbhaji.jpg"><p>Pav Bhaji</p></div>
+  <div class="card"><img src="./src/waffel.jpg"><p>Waffles</p></div>
+  <div class="card"><img src="./src/hotdog.jpg"><p>Hot Dog</p></div>
+</section>
+
+<!-- Comparison Table -->
+<section class="comparison">
+  <h2>Why On Prize Is the Smarter Way to Order Food</h2>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Features</th>
+          <th>On Prize</th>
+          <th>Other Food Apps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Same Price as Restaurant</td>
+          <td>✔</td>
+          <td>✖ (Marked-up)</td>
+        </tr>
+        <tr>
+          <td>No Service Fees</td>
+          <td>✔</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>No Platform Fees</td>
+          <td>✔</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>No Hidden Charges</td>
+          <td>✔</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Transparent Billing</td>
+          <td>✔</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Personalized Food Options</td>
+          <td>✔</td>
+          <td>Limited</td>
+        </tr>
+        <tr>
+          <td>Every Order Give 100₹ Cashback Coupon</td>
+          <td>✔</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Value for Money</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- App Section -->
+<!-- App Section -->
+<section class="app-section coming-soon">
+  <h2>More cool features coming soon on the app 🚀</h2>
+  <p>
+    The On Prize app is currently under development.
+    We’re working hard to bring you a seamless food ordering experience.
+  </p>
+
+  <div class="store-buttons disabled">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store">
+  </div>
+
+  <span class="coming-soon-badge">Coming Soon</span>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <ul>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="terms.html">Terms & Conditions</a></li>
+    <li><a href="refund-cancellation.html">Refund & Cancellation</a></li>
+    <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+  </ul>
+  <p>© 2026 On Prize</p>
+</footer>
+
+
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const searchMessage = document.getElementById("searchMessage");
+
+  function showMessage(text) {
+    searchMessage.textContent = text;
+    searchMessage.classList.add("show");
+
+    setTimeout(() => {
+      searchMessage.classList.remove("show");
+    }, 3000);
+  }
+
+  searchInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) return;
+
+      // Remove old highlights
+      document.querySelectorAll(".highlight").forEach(el => {
+        el.classList.remove("highlight");
+      });
+
+      let found = false;
+      const elements = document.querySelectorAll("p, h1, h2, h3, h4, li, span");
+
+      elements.forEach(el => {
+        if (!found && el.textContent.toLowerCase().includes(query)) {
+          found = true;
+          el.classList.add("highlight");
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+
+      if (!found) {
+        showMessage(`No results found for "${query}"`);
+      }
+    }
+  });
+  const detectBtn = document.getElementById("detectLocationBtn");
+  const locationInput = document.getElementById("locationInput");
+  const locationStatus = document.getElementById("locationStatus");
+
+  detectBtn.addEventListener("click", () => {
+    if (!navigator.geolocation) {
+      showError("Geolocation not supported");
+      return;
+    }
+
+    locationStatus.textContent = "Detecting location...";
+    locationStatus.className = "location-status";
+
+    navigator.geolocation.getCurrentPosition(success, error, {
+      enableHighAccuracy: true,
+      timeout: 10000
+    });
+  });
+
+  function success(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    // INDIA bounding box check (works even if API fails)
+    if (lat >= 6 && lat <= 38 && lon >= 68 && lon <= 97) {
+      showSuccess("✅ We can deliver the order (India)");
+    } else {
+      showError("❌ Service not available in your location");
+    }
+
+    // OPTIONAL: Try reverse geocode (best effort)
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`, {
+      headers: {
+        "Accept": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.address) {
+          const city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            data.address.state ||
+            "Your area";
+
+          locationInput.value = city + ", India";
+        }
+      })
+      .catch(() => {
+        // Silent fail – delivery already confirmed
+        locationInput.value = "India";
+      });
+  }
+
+  function error(err) {
+    showError("Location permission denied");
+  }
+
+  function showSuccess(msg) {
+    locationStatus.textContent = msg;
+    locationStatus.className = "location-status success";
+  }
+
+  function showError(msg) {
+    locationStatus.textContent = msg;
+    locationStatus.className = "location-status error";
+  }
+</script>
+
+
+</body>
+</html>
