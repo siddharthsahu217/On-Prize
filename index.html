@@ -198,14 +198,46 @@
 
 <!-- Footer -->
 <footer class="footer">
-  <ul>
+  <ul class="footer-links">
     <li><a href="privacy-policy.html">Privacy Policy</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="terms.html">Terms & Conditions</a></li>
     <li><a href="refund-cancellation.html">Refund & Cancellation</a></li>
     <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
   </ul>
-  <p>© 2026 On Prize</p>
+
+  <div class="footer-cities">
+    <h4>Available in:</h4>
+
+    <div class="city-columns">
+      <span>Bangalore</span>
+      <span>Gurgaon</span>
+      <span>Hyderabad</span>
+      <span>Delhi</span>
+      <span>Mumbai</span>
+      <span>Pune</span>
+      <span>Chennai</span>
+      <span>Kolkata</span>
+      <span>Ahmedabad</span>
+      <span>Jaipur</span>
+      <span>Chandigarh</span>
+      <span>Lucknow</span>
+    </div>
+
+    <!-- Dropdown centered -->
+    <div class="cities-dropdown">
+      <button class="dropdown-btn" id="cityToggle">
+        <span id="cityCount">206 cities</span>
+        <span class="arrow">▾</span>
+      </button>
+
+      <div class="dropdown-menu" id="cityMenu">
+        <ul id="cityList"></ul>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">© 2026 On Prize</p>
+
 </footer>
 
 
@@ -400,7 +432,30 @@ function showError(msg) {
   locationStatus.className = "location-status error";
 }
 
+const cityCount = document.getElementById("cityCount");
+const cityList = document.getElementById("cityList");
+const toggleBtn = document.getElementById("cityToggle");
+const menu = document.getElementById("cityMenu");
 
+if (cityCount && cityList && toggleBtn && menu) {
+  cityCount.textContent = `${serviceCities.length} cities`;
+
+  serviceCities.forEach(city => {
+    const li = document.createElement("li");
+    li.textContent = city;
+    cityList.appendChild(li);
+  });
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.style.display =
+      menu.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", () => {
+    menu.style.display = "none";
+  });
+}
 </script>
 
 
