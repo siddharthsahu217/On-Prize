@@ -25,8 +25,21 @@
     <h2>Delicious food, delivered fast</h2>
 <div class="location-bar">
   <span class="location-icon">📍</span>
-  <input type="text" id="locationInput" placeholder="Enter your delivery location" readonly>
+
+  <input
+    type="text"
+    id="locationInput"
+    placeholder="Enter your delivery location"
+    readonly
+  />
+
   <button id="detectLocationBtn">Detect</button>
+
+  <div class="city-select">
+    <select id="cityDropdown">
+      <option value=""> </option>
+    </select>
+  </div>
 </div>
 
 <p id="locationStatus" class="location-status"></p>
@@ -237,74 +250,157 @@
       }
     }
   });
-  const detectBtn = document.getElementById("detectLocationBtn");
-  const locationInput = document.getElementById("locationInput");
-  const locationStatus = document.getElementById("locationStatus");
+ 
+const detectBtn = document.getElementById("detectLocationBtn");
+const locationInput = document.getElementById("locationInput");
+const locationStatus = document.getElementById("locationStatus");
+const cityDropdown = document.getElementById("cityDropdown");
 
-  detectBtn.addEventListener("click", () => {
-    if (!navigator.geolocation) {
-      showError("Geolocation not supported");
-      return;
-    }
+/* ========= CITY LIST (KEEP ONLY ONCE) ========= */
+const serviceCities = [
+  "Kolkata","Chennai","Ahmedabad","Chandigarh","Jaipur","Kochi",
+  "Coimbatore","Lucknow","Nagpur","Vadodara","Indore","Guwahati",
+  "Visakhapatnam","Surat","Dehradun","Noida","Ludhiana","Trichy",
+  "Vijayawada","Kanpur","Mysore","Nashik","Udaipur","Pondicherry",
+  "Agra","Aurangabad","Jalandhar","Kota","Madurai","Allahabad",
+  "Amritsar","Bareilly","Meerut","Bhopal","Bhubaneswar","Raipur",
+  "Rajkot","Thrissur","Tirupati","Vellore","Varanasi","Patna",
+  "Ranchi","Faridabad","Guntur","Ujjain","Patiala","Panipat",
+  "Jamshedpur","Dhanbad","Hubli","Jabalpur","Kolhapur","Solapur",
+  "Cuttack","Salem","Agartala","Jodhpur","Ajmer","Jhansi",
+  "Thanjavur","Erode","Nellore","Rourkela","Kurnool","Ambala",
+  "Bathinda","Mathura","Haridwar","Ratnagiri","Amravati",
+  "Rishikesh","Shimla","Muzaffarpur","Silchar","Alappuzha",
+  "Sonipat","Rohtak","Mehsana","Nainital","Akola","Gaya",
+  "Muzaffarnagar","Jalgaon","Hassan","Hisar","Rampur",
+  "Etawah","Porbandar","Morbi","Eluru","Bidar","Anantnag",
+  "Haldwani","Panchkula","Malegaon","Junagadh","Asansol",
+  "Bhilwara","Alwar","Bharatpur","Darjeeling","Siliguri",
+  "Bahraich","Azamgarh","Jind","Rewari","Palwal","Hoshiarpur",
+  "Faizabad","Gonda","Ballia","Etah","Haldia","Seoni",
+  "Nagapattinam","Chikmagalur","Mandya","Bagalkot","Osmanabad",
+  "Jaunpur","Port Blair","Jorhat","Biharsharif","Begusarai",
+  "Itarsi","Namakkal","Virudhunagar","Kamareddy","Karad",
+  "Krishnagiri","Tiptur","Mancherial","Balrampur","Malout",
+  "Himmatnagar","Berhampur","Malda","Mirzapur","Tanuku",
+  "Barmer","Betul","Datia","Balaghat","Sirsi","Karur",
+  "Kannur","Tezpur","Pinjore","Solan","Paonta Sahib",
+  "Aurangabad Bihar","Angul","Veraval","Daman","Silvassa",
+  "Lonavla","Bolpur","Balasore","Kotdwar","Itanagar",
+  "Aizawl","Gangtok","Kannauj","Cooch Behar","Palani",
+  "Udhampur","Kohima","Dumka","Rajsamand","Baran",
+  "Kasaragod","Manali","Diu","Almora","Jhargram",
+  "Tenkasi","Chidambaram","Washim","Perambalur","Idukki",
+  "Wayanad","Sitamarhi","Pattukkottai","Tindivanam",
+  "Digboi","Shirdi","Hosur","Palghar","Karaikal",
+  "Una","Rayagada","Jamui","Araria","Khagaria",
+  "SankaranKoil","Nabha","Kalimpong","Forbesganj",
+  "Rameswaram","Nanjangud","Banswara","Godda",
+  "Baramulla","Kangeyam","Lakshadweep"
+].map(c => c.toLowerCase());
 
-    locationStatus.textContent = "Detecting location...";
-    locationStatus.className = "location-status";
+/* ========= Populate Dropdown ========= */
+serviceCities.forEach(city => {
+  const option = document.createElement("option");
+  option.value = city;
+  option.textContent = city.charAt(0).toUpperCase() + city.slice(1);
+  cityDropdown.appendChild(option);
+});
+/* =========================
+   ON CITY SELECT
+   ========================= */
+cityDropdown.addEventListener("change", () => {
+  const selectedCity = cityDropdown.value;
 
-    navigator.geolocation.getCurrentPosition(success, error, {
-      enableHighAccuracy: true,
-      timeout: 10000
-    });
+  if (!selectedCity) return;
+
+  // ✅ Show city ONLY in location bar
+  locationInput.value = `${selectedCity}, India`;
+
+  // Status message
+  locationStatus.textContent =
+    "🟡 Service coming soon in selected city";
+  locationStatus.className = "location-status success";
+
+  // ✅ RESET dropdown (this hides text)
+  cityDropdown.selectedIndex = 0;
+});
+
+/* ========= Detect Button ========= */
+detectBtn.addEventListener("click", () => {
+  if (!navigator.geolocation) {
+    showError("Geolocation not supported");
+    return;
+  }
+
+  locationStatus.textContent = "Detecting location...";
+  locationStatus.className = "location-status";
+
+  navigator.geolocation.getCurrentPosition(success, error, {
+    enableHighAccuracy: true,
+    timeout: 10000
   });
+});
 
-  function success(position) {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
+/* ========= Success ========= */
+function success(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
 
-    // INDIA bounding box check (works even if API fails)
-    if (lat >= 6 && lat <= 38 && lon >= 68 && lon <= 97) {
-      showSuccess("✅ We can deliver the order (India)");
-    } else {
-      showError("❌ Service not available in your location");
-    }
+  // India bounding box
+  if (!(lat >= 6 && lat <= 38 && lon >= 68 && lon <= 97)) {
+    showError("❌ Service available only in India");
+    return;
+  }
 
-    // OPTIONAL: Try reverse geocode (best effort)
-    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`, {
-      headers: {
-        "Accept": "application/json"
+  fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`)
+    .then(res => res.json())
+    .then(data => {
+      const city =
+        data.address.city ||
+        data.address.town ||
+        data.address.village ||
+        "";
+
+      locationInput.value = city + ", India";
+
+      if (serviceCities.includes(city.toLowerCase())) {
+        showSuccess("🟡 Service coming soon in " + city);
+      } else {
+        showError("❌ Currently not available in your area");
       }
     })
-      .then(res => res.json())
-      .then(data => {
-        if (data.address) {
-          const city =
-            data.address.city ||
-            data.address.town ||
-            data.address.village ||
-            data.address.state ||
-            "Your area";
+    .catch(() => {
+      showError("Unable to detect city");
+    });
+}
 
-          locationInput.value = city + ", India";
-        }
-      })
-      .catch(() => {
-        // Silent fail – delivery already confirmed
-        locationInput.value = "India";
-      });
-  }
+/* ========= Dropdown Manual Selection ========= */
+cityDropdown.addEventListener("change", () => {
+  if (!cityDropdown.value) return;
 
-  function error(err) {
-    showError("Location permission denied");
-  }
+  locationInput.value =
+    cityDropdown.options[cityDropdown.selectedIndex].text + ", India";
 
-  function showSuccess(msg) {
-    locationStatus.textContent = msg;
-    locationStatus.className = "location-status success";
-  }
+  showSuccess("🟡 Service coming soon in selected city");
+});
 
-  function showError(msg) {
-    locationStatus.textContent = msg;
-    locationStatus.className = "location-status error";
-  }
+/* ========= Error ========= */
+function error() {
+  showError("Location permission denied");
+}
+
+function showSuccess(msg) {
+  locationStatus.textContent = msg;
+  locationStatus.className = "location-status success";
+}
+
+function showError(msg) {
+  locationStatus.textContent = msg;
+  locationStatus.className = "location-status error";
+}
+
+
 </script>
 
 

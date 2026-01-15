@@ -62,77 +62,116 @@ body {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
-/* =============================
-   LOCATION BAR (HERO)
-   ============================= */
+/* ================= LOCATION BAR ================= */
 
 .location-bar {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #ffffff;
-  padding: 12px 16px;
-  border-radius: 40px;
-  width: 100%;
-  max-width: 520px;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  gap: 6px;
+  background: #fff;
+  border-radius: 30px;
+  padding: 6px 10px;
+  max-width: 680px;
+  margin: 20px auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
+/* location icon */
 .location-icon {
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.location-bar input {
+/* input */
+#locationInput {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 15px;
+  font-size: 14px;
+  padding: 8px;
+  min-width: 0;
 }
 
-.location-bar button {
-  background: #e53935;
+/* detect button */
+#detectLocationBtn {
+  background: #ff3d3d;
   color: #fff;
   border: none;
-  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 14px;
-    white-space: nowrap;   /* FIX TEXT BREAK */
-  flex-shrink: 0;  
+  padding: 7px 14px;
+  font-size: 13px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-.location-bar button:hover {
-  opacity: 0.9;
+#detectLocationBtn:hover {
+  background: #e63232;
 }
-/* Location status message */
-.location-status {
-  margin-top: 10px;
+
+/* dropdown wrapper */
+.city-select {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+/* dropdown */
+#cityDropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+/* dropdown arrow */
+.city-select::after {
+  content: "▾";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 14px;
-  color: #fff;
-  font-weight: 600;
+  color: #333;
+  pointer-events: none;
+}
+
+/* status text */
+.location-status {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 .location-status.success {
-  color: #8bc34a;
+  color: #f4b400;
 }
 
 .location-status.error {
-  color: #ff5252;
+  color: #ff3d3d;
 }
 
-/* Mobile */
+/* ================= MOBILE RESPONSIVE ================= */
+
 @media (max-width: 600px) {
   .location-bar {
-    max-width: 100%;
-    padding: 10px 14px;
+    max-width: 90%;
+    padding: 6px;
   }
 
-  .location-bar button {
-    padding: 7px 12px;
+  #locationInput {
+    font-size: 13px;
+  }
+
+  #detectLocationBtn {
+    padding: 6px 10px;
     font-size: 12px;
   }
 }
+
 
 /* Search bar */
 .hero-search input {
