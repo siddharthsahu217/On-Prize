@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy | On Prize</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="navbar">
+ <div class="logo">
+  <span class="on">On</span>
+  <span class="prize">Prize</span>
+ </div>
+  
+</header>
+<section class="careers-section">
+
+  <!-- Intro -->
+  <div class="careers-intro">
+    <h1>Careers at On Prize</h1>
+    <p>
+      Join On Prize and help us build a fair, transparent food delivery
+      platform where customers pay the same price as the restaurant.
+    </p>
+  </div>
+
+  <!-- Jobs -->
+<!-- Delivery Partner -->
+<div class="job-item">
+  <div class="job-summary" onclick="toggleJob(this)">
+    <div>
+      <h3>Delivery Partner</h3>
+      <p>Deliver food orders safely and on time in your city.</p>
+      <span>Type: Full Time / Part Time</span>
+    </div>
+    <button class="view-btn">View details</button>
+  </div>
+
+  <div class="job-details">
+    <h4>Job Responsibilities</h4>
+    <ul>
+      <li>Pick up food from partner restaurants</li>
+      <li>Deliver orders safely and on time</li>
+      <li>Ensure customer satisfaction</li>
+    </ul>
+
+    <h4>Requirements</h4>
+    <ul>
+      <li>Smartphone with internet access</li>
+      <li>Valid driving license</li>
+    </ul>
+
+    <a href="#" class="apply-btn">Apply Now</a>
+  </div>
+</div>
+
+<!-- Restaurant Onboarding Executive -->
+<div class="job-item">
+  <div class="job-summary" onclick="toggleJob(this)">
+    <div>
+      <h3>Restaurant Onboarding Executive</h3>
+      <p>Help restaurants join On Prize and understand our same-price model.</p>
+      <span>Type: Full Time</span>
+    </div>
+    <button class="view-btn">View details</button>
+  </div>
+
+  <div class="job-details">
+    <h4>Job Responsibilities</h4>
+    <ul>
+      <li>Onboard new restaurants onto On Prize</li>
+      <li>Explain On Prize same-price policy</li>
+      <li>Verify restaurant documents</li>
+    </ul>
+
+    <h4>Requirements</h4>
+    <ul>
+      <li>Good communication skills</li>
+      <li>Field experience preferred</li>
+    </ul>
+
+    <a href="#" class="apply-btn">Apply Now</a>
+  </div>
+</div>
+
+<!-- Restaurant Onboarding Executive Manager -->
+<div class="job-item">
+  <div class="job-summary" onclick="toggleJob(this)">
+    <div>
+      <h3>Restaurant Onboarding Executive Manager</h3>
+      <p>Lead the onboarding team and grow restaurant partnerships.</p>
+      <span>Type: Full Time</span>
+    </div>
+    <button class="view-btn">View details</button>
+  </div>
+
+  <div class="job-details">
+    <h4>Job Responsibilities</h4>
+    <ul>
+      <li>Manage onboarding executives and field teams</li>
+      <li>Ensure smooth restaurant onboarding process</li>
+      <li>Maintain strong restaurant relationships</li>
+    </ul>
+
+    <h4>Requirements</h4>
+    <ul>
+      <li>2+ years team management experience</li>
+      <li>Strong communication & leadership skills</li>
+    </ul>
+
+    <a href="#" class="apply-btn">Apply Now</a>
+  </div>
+</div>
+
+
+
+  <!-- Cities -->
+  <div class="careers-block">
+    <h2>Cities We Are Hiring In</h2>
+
+ <div class="cities-grid" id="citiesGrid">
+    <!-- Initial cities -->
+    <div class="city-box">Indore</div>
+    <div class="city-box">Jaipur</div>
+    <div class="city-box">Coimbatore</div>
+    <div class="city-box">Noida</div>
+    <div class="city-box">Vizag</div>
+    <div class="city-box">Kochi</div>
+    <div class="city-box">Chennai</div>
+    <div class="city-box">Kolkata</div>
+    <div class="city-box">Ahmedabad</div>
+    <div class="city-box">Kanpur</div>
+    <div class="city-box">Chandigarh</div>
+    <div class="city-box">Lucknow</div>
+
+    <!-- Expand button -->
+    <div class="city-box more-cities" id="toggleCities">
+      +206 Cities
+    </div>
+  </div>
+  </div>
+
+</section>
+
+
+
+    <footer class="footer">
+  <ul>
+     <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="terms.html">Terms & Conditions</a></li>
+    <li><a href="refund-cancellation.html">Refund & Cancellation</a></li>
+    <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+    <li><a href="partner.html">Partner with us</a></li>
+  </ul>
+  <p>© 2026 On Prize</p>
+</footer>
+<script>
+  function toggleJob(element) {
+    const jobItem = element.parentElement;
+    const btn = element.querySelector(".view-btn");
+
+    jobItem.classList.toggle("active");
+    btn.textContent = jobItem.classList.contains("active")
+      ? "Hide details"
+      : "View details";
+  }
+  const citiesModal = [
+  "Kolkata","Chennai","Ahmedabad","Chandigarh","Jaipur","Kochi",
+  "Coimbatore","Lucknow","Nagpur","Vadodara","Indore","Guwahati",
+  "Visakhapatnam","Surat","Dehradun","Noida","Ludhiana","Trichy",
+  "Vijayawada","Kanpur","Mysore","Nashik","Udaipur","Pondicherry",
+  "Agra","Aurangabad","Jalandhar","Kota","Madurai","Allahabad",
+  "Amritsar","Bareilly","Meerut","Bhopal","Bhubaneswar","Raipur",
+  "Rajkot","Thrissur","Tirupati","Vellore","Varanasi","Patna",
+  "Ranchi","Faridabad","Guntur","Ujjain","Patiala","Panipat",
+  "Jamshedpur","Dhanbad","Hubli","Jabalpur","Kolhapur","Solapur",
+  "Cuttack","Salem","Agartala","Jodhpur","Ajmer","Jhansi",
+  "Thanjavur","Erode","Nellore","Rourkela","Kurnool","Ambala",
+  "Bathinda","Mathura","Haridwar","Ratnagiri","Amravati",
+  "Rishikesh","Shimla","Muzaffarpur","Silchar","Alappuzha",
+  "Sonipat","Rohtak","Mehsana","Nainital","Akola","Gaya",
+  "Muzaffarnagar","Jalgaon","Hassan","Hisar","Rampur",
+  "Etawah","Porbandar","Morbi","Eluru","Bidar","Anantnag",
+  "Haldwani","Panchkula","Malegaon","Junagadh","Asansol",
+  "Bhilwara","Alwar","Bharatpur","Darjeeling","Siliguri",
+  "Bahraich","Azamgarh","Jind","Rewari","Palwal","Hoshiarpur",
+  "Faizabad","Gonda","Ballia","Etah","Haldia","Seoni",
+  "Nagapattinam","Chikmagalur","Mandya","Bagalkot","Osmanabad",
+  "Jaunpur","Port Blair","Jorhat","Biharsharif","Begusarai",
+  "Itarsi","Namakkal","Virudhunagar","Kamareddy","Karad",
+  "Krishnagiri","Tiptur","Mancherial","Balrampur","Malout",
+  "Himmatnagar","Berhampur","Malda","Mirzapur","Tanuku",
+  "Barmer","Betul","Datia","Balaghat","Sirsi","Karur",
+  "Kannur","Tezpur","Pinjore","Solan","Paonta Sahib",
+  "Aurangabad Bihar","Angul","Veraval","Daman","Silvassa",
+  "Lonavla","Bolpur","Balasore","Kotdwar","Itanagar",
+  "Aizawl","Gangtok","Kannauj","Cooch Behar","Palani",
+  "Udhampur","Kohima","Dumka","Rajsamand","Baran",
+  "Kasaragod","Manali","Diu","Almora","Jhargram",
+  "Tenkasi","Chidambaram","Washim","Perambalur","Idukki",
+  "Wayanad","Sitamarhi","Pattukkottai","Tindivanam",
+  "Digboi","Shirdi","Hosur","Palghar","Karaikal",
+  "Una","Rayagada","Jamui","Araria","Khagaria",
+  "SankaranKoil","Nabha","Kalimpong","Forbesganj",
+  "Rameswaram","Nanjangud","Banswara","Godda",
+  "Baramulla","Kangeyam","Lakshadweep"
+];
+const citiesGrid = document.getElementById("citiesGrid");
+const toggleBtn = document.getElementById("toggleCities");
+
+let expanded = false;
+let addedCities = [];
+
+toggleBtn.addEventListener("click", () => {
+  if (!expanded) {
+    // EXPAND
+    citiesModal.forEach(city => {
+      const div = document.createElement("div");
+      div.className = "city-box extra-city";
+      div.textContent = city;
+      citiesGrid.insertBefore(div, toggleBtn);
+      addedCities.push(div);
+    });
+
+    toggleBtn.textContent = "Show less";
+    expanded = true;
+  } else {
+    // SHRINK
+    addedCities.forEach(cityDiv => cityDiv.remove());
+    addedCities = [];
+
+    toggleBtn.textContent = "+206 Cities";
+    expanded = false;
+  }
+});
+
+</script>
+
+</body>
+</html>

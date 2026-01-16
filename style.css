@@ -971,3 +971,188 @@ td:nth-child(2) {
     padding: 30px;
   }
 }
+.careers-section {
+  padding: 80px 8%;
+  background: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+}
+
+.careers-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.careers-intro h1 {
+  font-size: 40px;
+  color: #222;
+}
+
+.careers-intro p {
+  font-size: 16px;
+  color: #555;
+  max-width: 700px;
+  margin: 15px auto 0;
+}
+.careers-block {
+  margin-bottom: 70px;
+}
+
+.careers-block h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+}
+/* Cities */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.city-box {
+  background: #fff;
+  padding: 12px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.city-box:hover {
+  background: #fc8019;
+  color: #fff;
+}
+
+.more-cities {
+  font-weight: 600;
+  color: #fc8019;
+  background: #fff7f0;
+}
+
+
+/* Accordion container */
+.job-accordion {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Job card */
+.job-item {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+/* Summary (clickable) */
+.job-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  cursor: pointer;
+}
+
+.job-summary h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.job-summary p {
+  font-size: 14px;
+  color: #555;
+}
+
+.job-summary span {
+  font-size: 13px;
+  color: #fc8019;
+  font-weight: 600;
+}
+/* view button  */
+.view-btn {
+  background: transparent;
+  border: none;
+  color: #fc8019;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  text-decoration: underline;
+}
+
+/* Change text when open */
+.job-item.active .view-btn {
+  content: "Hide details";
+}
+
+/* Details (hidden by default) */
+.job-details {
+  display: none;
+  padding: 0 30px 30px;
+  border-top: 1px solid #eee;
+}
+
+.job-details h4 {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.job-details ul {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.job-details ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Apply button */
+.apply-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: #fc8019;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.apply-btn:hover {
+  background: #e96b10;
+}
+
+/* Active state */
+.job-item.active .job-details {
+  display: block;
+}
+
+.job-item.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .job-summary {
+    padding: 20px;
+  }
+
+  .job-details {
+    padding: 0 20px 25px;
+  }
+}
