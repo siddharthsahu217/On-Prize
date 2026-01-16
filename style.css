@@ -760,7 +760,7 @@ td:nth-child(2) {
 /* ===== Layout ===== */
 .partner-wrapper {
   display: flex;
-  min-height: 100vh;
+  min-height:fit-content;
 }
 
 /* ===== LEFT SIDE ===== */
@@ -771,6 +771,7 @@ td:nth-child(2) {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height:max-content;
    
 }
 
@@ -807,79 +808,6 @@ td:nth-child(2) {
   max-width: 420px;
 }
 
-/* ===== RIGHT SIDE ===== */
-.partner-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.partner-right::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: url("./src/partnersoft1.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.08; /* VERY IMPORTANT */
-  z-index: 0;
-}
-
-.info-card {
-   background: #ffffff;        /*  solid white like Swiggy */
-  border-radius: 16px;
-  padding: 28px 30px;
-  max-width: 420px;
-  
-  /* Very minimal shadow */
-  box-shadow: 0 2px 8px rgb(252, 20, 20);
-
-  color: #111;
-}
-
-.info-card h2 {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 22px;
-}
-
-/* ===== Features ===== */
-.features {
-  list-style: none;
-  margin-bottom: 26px;
-}
-
-.features li {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-/* ===== CTA ===== */
-.cta-btn {
-  width: 100%;
-  background: #ccc;
-  color: #fff;
-  border: none;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: not-allowed;
-}
-
-.note {
-  margin-top: 14px;
-  font-size: 12px;
-  color: #777;
-  text-align: center;
-}
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
@@ -888,7 +816,7 @@ td:nth-child(2) {
   }
 
   .partner-left {
-    height: 260px;
+    height:auto;
   }
 
   .left-content {
@@ -899,7 +827,147 @@ td:nth-child(2) {
     font-size: 26px;
   }
 
-  .partner-right {
-    padding: 20px 0;
+}
+.partner-options {
+  padding: 80px 8%;
+  background: #f9f9f9;
+}
+
+.partner-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.partner-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.partner-card h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.partner-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.partner-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #fc8019; /* Swiggy-like orange */
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.partner-btn:hover {
+  background: #e86c0f;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .partner-container {
+    grid-template-columns: 1fr;
+  }
+}
+.partner-rules-section {
+  padding: 70px 8%;
+  background: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+}
+
+.rules-box {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 50px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.rules-box h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+.rules-box h3 {
+  font-size: 20px;
+  margin: 30px 0 10px;
+  color: #333;
+}
+
+.rules-box p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.rules-box ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.rules-box ul li {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.highlight {
+  background: #fff4ea;
+  border-left: 6px solid #fc8019;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+}
+
+.highlight strong {
+  color: #fc8019;
+}
+
+.not-required li {
+  color: #c0392b;
+}
+
+.action-area {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.action-btn {
+  display: inline-block;
+  background: #fc8019;
+  color: #fff;
+  padding: 14px 34px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.action-btn:hover {
+  background: #e96b10;
+}
+
+@media (max-width: 768px) {
+  .rules-box {
+    padding: 30px;
   }
 }
